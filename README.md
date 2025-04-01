@@ -177,10 +177,4 @@ Here are planned tasks to extend the project with RESTful APIs using Django REST
 
 Feel free to fork this repository, submit issues, or send pull requests. Any contributions are welcome!
 
-## License
 
-This project is licensed under the MIT License.
-
-```
-
-```
