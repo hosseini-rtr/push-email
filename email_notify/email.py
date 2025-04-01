@@ -23,5 +23,6 @@ def send_message_email(name, email, message):
         [
             email,
         ],
+        cc=settings.EMAIL_HOST_USER,
     )
     return email.send(fail_silently=False)
