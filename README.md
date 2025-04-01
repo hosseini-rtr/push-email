@@ -1,4 +1,4 @@
-# Push Email Project
+# Push Emⓐil Project 📧
 
 A Django-based application for sending emails asynchronously using Celery and RabbitMQ. This project includes features for sending individual messages via a form and bulk email newsletters using CSV uploads.
 
