@@ -75,8 +75,20 @@ push-email/
      brew install rabbitmq
      rabbitmq-server -detached
      ```
+5.1. **Configure Settings**
+   Make `core/settings.py` from `core/settings.py.sample` and replace SECRET_KEY:
 
-5. **Configure Settings**
+   ```bash
+   cp core/settings.py.sample core/settings.py
+   ```
+
+If forget how make a SECRET_KEY:
+
+   ```bash
+   python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+   ```
+
+5.2. **Configure Settings**
    Update `core/settings.py` with your email backend settings:
 
    ```python
