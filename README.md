@@ -1,38 +1,19 @@
-# Push Emⓐil Project 📧
+# Django Notification Apps Project
 
-A Django-based application for sending emails asynchronously using Celery and RabbitMQ. This project includes features for sending individual messages via a form and bulk email newsletters using CSV uploads.
-
-## Features
-
-- **Individual Email Sending**: Users can submit a form with their name, email, and message to send an email asynchronously.
-- **Bulk Newsletter Sending**: Upload a CSV file with `email` and `name` columns to send personalized newsletters to multiple recipients.
-- **Asynchronous Processing**: Uses Celery with RabbitMQ as the message broker to handle email sending in the background.
-- **Responsive UI**: Built with Bootstrap for a clean and user-friendly interface.
+This project contains a Django example (`core`) and two reusable Django applications:
+- **Email Notify (`django-email-notify`)**: For handling email notifications.
+- **Newsletter Notify (`django-newsletter-notify`)**: For managing newsletter functionalities.
 
 ## Project Structure
 
-```
-push-email/
-├── core/                  # Core settings and Celery configuration
-│   ├── celery.py
-│   └── settings.py
-├── email_notify/          # App for individual email sending
-│   ├── templates/
-│   ├── email.py
-│   ├── forms.py
-│   ├── tasks.py
-│   └── views.py
-├── newsletter_notify/     # App for bulk newsletter sending
-│   ├── templates/
-│   ├── forms.py
-│   ├── tasks.py
-│   └── views.py
-├── static/                # Static files (CSS, JS, etc.)
-└── templates/             # Base templates
-    └── base.html
-```
+- `core/`: A Django project that demonstrates how to use the notification apps.
+- `packages/`: Contains the individual, installable Django apps.
+    - `email_notify_pkg/`: Contains the `django-email-notify` app and its packaging files.
+    - `newsletter_notify_pkg/`: Contains the `django-newsletter-notify` app and its packaging files.
+- `manage.py`: Django's command-line utility for the `core` project.
+- `requirements.txt`: Specifies dependencies for the main project and the local packages.
 
-## Prerequisites
+## Getting Started
 
 - Python 3.11+
 - Django 5.x
@@ -125,9 +106,17 @@ DEFAULT_FROM_EMAIL = 'your-email@gmail.com'
 - **Newsletter**: Visit `/newsletter/` to upload a CSV file and send bulk emails.
   - CSV Format:
     ```
-    email,name
-    example1@gmail.com,John
-    example2@gmail.com,Jane
+    This will also install `django-email-notify` and `django-newsletter-notify` in editable mode.
+4.  Set up the Django project:
+    - Copy `core/settings.py.sample` to `core/settings.py`.
+    - Update `core/settings.py` with your database settings, secret key, email configurations, etc.
+5.  Run migrations:
+    ```bash
+    python manage.py migrate
+    ```
+6.  Run the development server:
+    ```bash
+    python manage.py runserver
     ```
 
 ## Dependencies

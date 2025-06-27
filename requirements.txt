@@ -30,3 +30,5 @@ tzdata==2025.2
 urllib3==2.3.0
 vine==5.1.0
 wcwidth==0.2.13
+-e ./packages/email_notify_pkg
+-e ./packages/newsletter_notify_pkg
