@@ -1,0 +1,6 @@
+# sample usage: poetry run setup
+
+[tool.poetry.scripts]
+setup = "scripts.setup:main"
+tasks = "scripts.run_tasks:main"
+monitor = "bash scripts/monitor.sh"

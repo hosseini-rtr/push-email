@@ -71,12 +71,12 @@ push-email/
      sudo systemctl start rabbitmq-server
      ```
    - On Mac:
-     ```bash
+     `bash
      brew install rabbitmq
      rabbitmq-server -detached
-     ```
-5.1. **Configure Settings**
-   Make `core/settings.py` from `core/settings.py.sample` and replace SECRET_KEY:
+     `
+     5.1. **Configure Settings**
+     Make `core/settings.py` from `core/settings.py.sample` and replace SECRET_KEY:
 
    ```bash
    cp core/settings.py.sample core/settings.py
@@ -84,22 +84,22 @@ push-email/
 
 If forget how make a SECRET_KEY:
 
-   ```bash
-   python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
-   ```
+```bash
+python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+```
 
 5.2. **Configure Settings**
-   Update `core/settings.py` with your email backend settings:
+Update `core/settings.py` with your email backend settings:
 
-   ```python
-   EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-   EMAIL_HOST = 'smtp.gmail.com'
-   EMAIL_PORT = 587
-   EMAIL_USE_TLS = True
-   EMAIL_HOST_USER = 'your-email@gmail.com'
-   EMAIL_HOST_PASSWORD = 'your-app-password'
-   DEFAULT_FROM_EMAIL = 'your-email@gmail.com'
-   ```
+```python
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email@gmail.com'
+EMAIL_HOST_PASSWORD = 'your-app-password'
+DEFAULT_FROM_EMAIL = 'your-email@gmail.com'
+```
 
 6. **Apply Migrations**
 
@@ -176,5 +176,3 @@ Here are planned tasks to extend the project with RESTful APIs using Django REST
 ## Contributing
 
 Feel free to fork this repository, submit issues, or send pull requests. Any contributions are welcome!
-
-

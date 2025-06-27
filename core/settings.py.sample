@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+from celery.schedules import crontab
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_celery_beat",
     "email_notify",
     "newsletter_notify",
 ]
@@ -127,7 +129,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
-    "django.contrib.staticfiles.finders.AppDirectoriesFinder", 
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
 # Default primary key field type
@@ -144,3 +146,11 @@ EMAIL_HOST_PASSWORD = "EMAIL_HOST_PASSWORD"  # YOUR_PASSWORD
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+CELERY_BEAT_SCHEDULE = {
+    "scheduled_task": {
+        "task": "newsletter_notify",
+        "schedule": crontab(hour=7, minute=30, day_of_week=1),
+    }
+}
